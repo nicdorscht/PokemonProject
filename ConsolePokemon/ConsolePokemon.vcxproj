@@ -135,21 +135,33 @@
     <ClCompile Include="StatusEffect.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AirSlash.h" />
     <ClInclude Include="BasePokemon.h" />
     <ClInclude Include="Blastoise.h" />
+    <ClInclude Include="Blizzard.h" />
     <ClInclude Include="Charizard.h" />
+    <ClInclude Include="DoubleTeam.h" />
+    <ClInclude Include="DragonPulse.h" />
     <ClInclude Include="Earthquake.h" />
     <ClInclude Include="FireBlast.h" />
     <ClInclude Include="Flamethrower.h" />
+    <ClInclude Include="FlashCannon.h" />
+    <ClInclude Include="FocusBlast.h" />
     <ClInclude Include="IceBeam.h" />
+    <ClInclude Include="IronTail.h" />
+    <ClInclude Include="Lapras.h" />
     <ClInclude Include="MegaKick.h" />
+    <ClInclude Include="Pikachu.h" />
     <ClInclude Include="Slash.h" />
     <ClInclude Include="Hydropump.h" />
     <ClInclude Include="Move.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PokemonType.h" />
+    <ClInclude Include="Snorlax.h" />
     <ClInclude Include="StatusEffect.h" />
+    <ClInclude Include="ThunderBolt.h" />
     <ClInclude Include="Venusaur.h" />
+    <ClInclude Include="VoltTackle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

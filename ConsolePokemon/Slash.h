@@ -7,5 +7,5 @@ extern PokemonType normal;
 
 class Slash : public Move {
 public:
-	Slash() : Move("Slash", normal, false, 70, 100, 20) {}
+	Slash() : Move("Slash", normal, false, 70, 100, 20, 0) {}
 };

@@ -8,25 +8,28 @@
 #include "PokemonType.h"
 #include "BasePokemon.h"
 
-Move::Move(std::string new_name, PokemonType new_move_type, bool new_is_special, int new_power, int new_accuracy, int new_pp) :
-	move_name(new_name),
-	move_type(new_move_type),
-	is_special(new_is_special),
-	power(new_power),
-	accuracy(new_accuracy),
-	pp(new_pp)
-{}
-
-Move::Move(std::string new_name, PokemonType new_move_type, bool new_is_special, int new_power, int new_accuracy, int new_pp, int new_stat_change, int new_stages, bool new_on_enemy) :
+Move::Move(std::string new_name, PokemonType new_move_type, bool new_is_special, int new_power, int new_accuracy, int new_pp, float new_recoil) :
 	move_name(new_name),
 	move_type(new_move_type),
 	is_special(new_is_special),
 	power(new_power),
 	accuracy(new_accuracy),
 	pp(new_pp),
+	recoil_percent(new_recoil)
+{}
+
+Move::Move(std::string new_name, PokemonType new_move_type, bool new_is_special, int new_power, int new_accuracy, int new_pp, float new_recoil, int new_stat_change, int new_stages, bool new_on_enemy, int new_stat_chance) :
+	move_name(new_name),
+	move_type(new_move_type),
+	is_special(new_is_special),
+	power(new_power),
+	accuracy(new_accuracy),
+	pp(new_pp),
+	recoil_percent(new_recoil),
 	stat_change(new_stat_change),
 	stages(new_stages),
-	on_enemy(new_on_enemy)
+	on_enemy(new_on_enemy),
+	stat_chance(new_stat_chance)
 {}
 
 Move::~Move() {}
@@ -54,7 +57,13 @@ void Move::use_move(BasePokemon *user, BasePokemon *target) {
 	int crit_chance = 25;
 	float random;
 	int acc_check = rand() % 101;
+	int stat_check = rand() % 101;
 	float modified_accuracy = accuracy * user->get_stats()[7] * target->get_stats()[8];
+
+	//Check if guaranteed hit
+	if (accuracy < 0) {
+		modified_accuracy = 100;
+	}
 
 	//Determine multiplier based on typing
 	std::vector<PokemonType> target_types = target->get_types();
@@ -113,23 +122,33 @@ void Move::use_move(BasePokemon *user, BasePokemon *target) {
 		//Damage target, change stats and decrement pp
 		target->change_health(-damage);
 
-		if (stat_change != 0) {
+		if (stat_change != 0 && stat_check <= stat_chance) {
 			if (on_enemy) {
 				target->change_stats(stat_change, stages);
 			}
 			else {
 				user->change_stats(stat_change, stages);
+				//End move if only a stat raising move
+				if (power == 0) { return; }
 			}
 		}
+
+		//Deal recoil damage or add life steal
+		if (recoil_percent != 0) {
+			user->change_health(damage * recoil_percent);
+		}
+		
 
 		pp--;
 
 		//Print info to console
 		std::string crit_text = crit > 1 ? "A critical hit!\n" : "";
 		std::string effective_text = damage_multiplier > 1 ? "It's super effective!\n" : damage_multiplier == 0 ? "It doesn't affect " + target->get_name() + "...\n" : damage_multiplier < 1 ? "It's not very effective...\n" : "";
+		std::string recoil_text = recoil_percent > 0 ? target->get_name() + "'s health was drained!\n" : recoil_percent < 0 ? user->get_name() + "was hit with recoil!\n" : "";
 
 		std::cout << crit_text;
 		std::cout << effective_text;
+		std::cout << recoil_text;
 	}
 	else {
 		std::cout << move_name << " missed!\n";

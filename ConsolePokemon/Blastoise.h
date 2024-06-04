@@ -2,9 +2,9 @@
 #include "BasePokemon.h"
 
 #include "Hydropump.h"
-#include "Earthquake.h"
-#include "IceBeam.h"
-#include "MegaKick.h"
+#include "Blizzard.h"
+#include "FlashCannon.h"
+#include "FocusBlast.h"
 
 extern PokemonType water;
 
@@ -12,6 +12,6 @@ class Blastoise :
     public BasePokemon
 {
 public:
-    Blastoise() : BasePokemon("Blastoise", { water }, { new Hydropump(), new Earthquake(), new IceBeam(), new MegaKick()}, 100, 362, 291, 328, 295, 339, 280) {}
+    Blastoise() : BasePokemon("Blastoise", { water }, { new Hydropump(), new Blizzard(), new FlashCannon(), new FocusBlast() }, 100, 362, 291, 328, 295, 339, 280) {}
 };
 

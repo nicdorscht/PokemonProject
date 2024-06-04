@@ -8,6 +8,6 @@ class Hydropump :
     public Move
 {
 public:
-    Hydropump() : Move("Hydro Pump", water, true, 110, 80, 5) {}
+    Hydropump() : Move("Hydro Pump", water, true, 110, 80, 5, 0) {}
 };
 

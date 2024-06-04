@@ -86,5 +86,41 @@
     <ClInclude Include="StatusEffect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Pikachu.h">
+      <Filter>Header Files\Pokemon</Filter>
+    </ClInclude>
+    <ClInclude Include="Lapras.h">
+      <Filter>Header Files\Pokemon</Filter>
+    </ClInclude>
+    <ClInclude Include="Snorlax.h">
+      <Filter>Header Files\Pokemon</Filter>
+    </ClInclude>
+    <ClInclude Include="VoltTackle.h">
+      <Filter>Header Files\Moves</Filter>
+    </ClInclude>
+    <ClInclude Include="IronTail.h">
+      <Filter>Header Files\Moves</Filter>
+    </ClInclude>
+    <ClInclude Include="DoubleTeam.h">
+      <Filter>Header Files\Moves</Filter>
+    </ClInclude>
+    <ClInclude Include="ThunderBolt.h">
+      <Filter>Header Files\Moves</Filter>
+    </ClInclude>
+    <ClInclude Include="Blizzard.h">
+      <Filter>Header Files\Moves</Filter>
+    </ClInclude>
+    <ClInclude Include="FlashCannon.h">
+      <Filter>Header Files\Moves</Filter>
+    </ClInclude>
+    <ClInclude Include="FocusBlast.h">
+      <Filter>Header Files\Moves</Filter>
+    </ClInclude>
+    <ClInclude Include="AirSlash.h">
+      <Filter>Header Files\Moves</Filter>
+    </ClInclude>
+    <ClInclude Include="DragonPulse.h">
+      <Filter>Header Files\Moves</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

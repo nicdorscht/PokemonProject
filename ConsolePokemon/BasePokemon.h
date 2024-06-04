@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include "PokemonType.h"
+#include "StatusEffect.h"
 
 class Move;
 
@@ -44,6 +45,7 @@ protected:
 	int new_accuracy = accuracy;
 	int new_evasivness = evasivness;
 
+	//StatusEffect status_effect;
 	bool fainted = false;
 
 public :

@@ -6,5 +6,5 @@ extern PokemonType ground;
 
 class Earthquake : public Move {
 public:
-	Earthquake() : Move("Earthquake", ground, false, 100, 100, 10) {}
+	Earthquake() : Move("Earthquake", ground, false, 100, 100, 10, 0) {}
 };
