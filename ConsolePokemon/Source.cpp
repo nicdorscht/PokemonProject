@@ -27,58 +27,34 @@ PokemonType steel("Steel", { "Fire", "Fighting", "Ground" }, { "Normal", "Grass"
 #pragma endregion Type_Instanciation
 
 bool gameOver = false;
-std::string winner;
+std::string winner = "";
+std::string loser = "";
 
 int main() {
 
 	//Instantiate Players
-	Player *player1 = new Player({ new Charizard(), new Blastoise()});
-	Player *player2 = new Player({ new Blastoise() });
-
-	int i = 0;
+	Player* player1 = new Player("PUCLS", { new Charizard(), new Blastoise() });
+	Player* player2 = new Player("BOT", { new Blastoise() });
 
 	//Game Loop
 	while (true) {
 		int player1_speed = player1->get_current_pokemon()->get_stats()[6];
 		int player2_speed = player2->get_current_pokemon()->get_stats()[6];
 
-		if (player1_speed > player2_speed) {
-			if (gameOver) { std::cout << "Player 2 has no remaining pokemon... Player 1 wins!"; break;}
-			std::cout << "Player 1: \n";
+		if (player1_speed >= player2_speed) {
 			player1->play_turn(player2);
-			if (gameOver) { std::cout << "Player 1 has no remaining pokemon... Player 2 wins!"; break; }
-			std::cout << "Player 2: \n";
 			player2->play_turn(player1);
-		}
-		else if (player1_speed == player2_speed) {
-			int first = rand() % 3;
-			if (first == 1) {
-				if (gameOver) { std::cout << "Player 2 has no remaining pokemon... Player 1 wins!"; break; }
-				std::cout << "Player 1: \n";
-				player1->play_turn(player2);
-				if (gameOver) { std::cout << "Player 1 has no remaining pokemon... Player 2 wins!"; break;}
-				std::cout << "Player 2: \n";
-				player2->play_turn(player1);
-			}
-			else {
-				if (gameOver) { std::cout << "Player 2 has no remaining pokemon... Player 1 wins!"; break;}
-				std::cout << "Player 2: \n";
-				player2->play_turn(player1);
-				if (gameOver) { std::cout << "Player 1 has no remaining pokemon... Player 2 wins!"; break;}
-				std::cout << "Player 1: \n";
-				player1->play_turn(player2);
-			}
 		}
 		else {
-			if (gameOver) { std::cout << "Player 2 has no remaining pokemon... Player 1 wins!"; break; }
-			std::cout << "Player 2: \n";
 			player2->play_turn(player1);
-			if (gameOver) { std::cout << "Player 1 has no remaining pokemon... Player 2 wins!"; break; }
-			std::cout << "Player 1: \n";
 			player1->play_turn(player2);
 		}
 
-		i++;
+		if (gameOver && winner != "") {
+			std::cout << loser << " is out of usable pokemon...\n" << winner << " wins!\n";
+			system("Color 17");
+			break;
+		}
 	}
 
 	delete player1;

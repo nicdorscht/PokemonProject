@@ -8,8 +8,11 @@ using std::cout;
 using std::cin;
 
 extern bool gameOver;
+extern std::string winner;
+extern std::string loser;
 
-Player::Player(std::vector<BasePokemon *> new_pokemon_list) :
+Player::Player(std::string new_name, std::vector<BasePokemon *> new_pokemon_list) :
+	player_name(new_name),
 	pokemon_list(new_pokemon_list)
 {}
 
@@ -31,15 +34,11 @@ BasePokemon * Player::get_current_pokemon() {
 	return current_pokemon;
 }
 
+std::string Player::get_name() {
+	return player_name;
+}
+
 void Player::PokemonSwitch() {
-
-	bool allFainted = true;
-
-	for (int i = 0; i < pokemon_list.size(); i++) {
-		if (pokemon_list[i]->get_stats()[1] > 0) { allFainted = false; }
-	}
-
-	if (allFainted) { gameOver = true; return; }
 
 	cout << "Choose a Pokemon: \n";
 
@@ -68,6 +67,25 @@ void Player::PokemonSwitch() {
 }
 
 void Player::play_turn(Player *target_player) {
+
+	if (gameOver && winner == "") {
+		winner = player_name;
+		return;
+	}
+
+	bool allFainted = true;
+
+	for (int i = 0; i < pokemon_list.size(); i++) {
+		if (pokemon_list[i]->get_stats()[1] > 0) { allFainted = false; }
+	}
+
+	if (allFainted) {
+		gameOver = true;
+		loser = player_name;
+		return;
+	}
+
+	std::cout << player_name << ":\n";
 
 	if (current_pokemon->get_stats()[1] <= 0) {
 		PokemonSwitch();
