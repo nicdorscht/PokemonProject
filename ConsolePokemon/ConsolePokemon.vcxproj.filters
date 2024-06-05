@@ -122,5 +122,14 @@
     <ClInclude Include="DragonPulse.h">
       <Filter>Header Files\Moves</Filter>
     </ClInclude>
+    <ClInclude Include="BodySlam.h">
+      <Filter>Header Files\Moves</Filter>
+    </ClInclude>
+    <ClInclude Include="Brine.h">
+      <Filter>Header Files\Moves</Filter>
+    </ClInclude>
+    <ClInclude Include="Psychic.h">
+      <Filter>Header Files\Moves</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

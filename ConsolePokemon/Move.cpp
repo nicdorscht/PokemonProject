@@ -146,9 +146,7 @@ void Move::use_move(BasePokemon *user, BasePokemon *target) {
 		std::string effective_text = damage_multiplier > 1 ? "It's super effective!\n" : damage_multiplier == 0 ? "It doesn't affect " + target->get_name() + "...\n" : damage_multiplier < 1 ? "It's not very effective...\n" : "";
 		std::string recoil_text = recoil_percent > 0 ? target->get_name() + "'s health was drained!\n" : recoil_percent < 0 ? user->get_name() + "was hit with recoil!\n" : "";
 
-		std::cout << crit_text;
-		std::cout << effective_text;
-		std::cout << recoil_text;
+		std::cout << crit_text << effective_text << recoil_text;
 	}
 	else {
 		std::cout << move_name << " missed!\n";

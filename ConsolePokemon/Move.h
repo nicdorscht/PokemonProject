@@ -36,5 +36,5 @@ public:
 
 	std::vector<int> get_move_info();
 
-	void use_move(BasePokemon *user, BasePokemon *target);
+	virtual void use_move(BasePokemon *user, BasePokemon *target);
 };

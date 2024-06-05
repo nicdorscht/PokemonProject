@@ -139,6 +139,8 @@
     <ClInclude Include="BasePokemon.h" />
     <ClInclude Include="Blastoise.h" />
     <ClInclude Include="Blizzard.h" />
+    <ClInclude Include="BodySlam.h" />
+    <ClInclude Include="Brine.h" />
     <ClInclude Include="Charizard.h" />
     <ClInclude Include="DoubleTeam.h" />
     <ClInclude Include="DragonPulse.h" />
@@ -152,6 +154,7 @@
     <ClInclude Include="Lapras.h" />
     <ClInclude Include="MegaKick.h" />
     <ClInclude Include="Pikachu.h" />
+    <ClInclude Include="Psychic.h" />
     <ClInclude Include="Slash.h" />
     <ClInclude Include="Hydropump.h" />
     <ClInclude Include="Move.h" />

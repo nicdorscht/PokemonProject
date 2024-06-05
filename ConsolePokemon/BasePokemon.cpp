@@ -31,6 +31,10 @@ std::vector<int> BasePokemon::get_stats() {
 	return { level, new_health, new_attack, new_defence, new_spattack, new_spdefence, new_speed, new_accuracy, new_evasivness };
 }
 
+std::vector<int> BasePokemon::get_base_stats() {
+	return { level, health, attack, defence, spattack, spdefence, speed, accuracy, evasivness };
+}
+
 std::vector<PokemonType> BasePokemon::get_types() {
 	return types;
 }

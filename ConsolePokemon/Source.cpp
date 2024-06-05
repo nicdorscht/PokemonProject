@@ -11,7 +11,7 @@
 #include <cstdlib>
 
 #pragma region Type_Instanciation
-PokemonType normal("Normal", {}, { "Fighting" }, { "Ghost" });
+PokemonType normal("Normal", { "Fighting" }, { }, { "Ghost" });
 PokemonType fire("Fire", { "Water", "Ground", "Rock" }, { "Fire", "Grass", "Ice", "Bug" });
 PokemonType water("Water", { "Grass", "Electric" }, { "Fire", "Water", "Ice", "Steel" });
 PokemonType electric("Electric", { "Ground" }, { "Electric", "Flying", "Steel" });

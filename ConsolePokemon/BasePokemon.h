@@ -53,6 +53,7 @@ public :
 	~BasePokemon();
 
 	std::vector<int> get_stats();
+	std::vector<int> get_base_stats();
 	std::string get_name();
 	void print_stats();
 	std::vector<PokemonType> get_types();
