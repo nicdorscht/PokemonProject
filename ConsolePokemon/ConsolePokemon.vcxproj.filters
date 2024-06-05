@@ -39,6 +39,9 @@
     <ClCompile Include="StatusEffect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Bot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasePokemon.h">
@@ -175,6 +178,9 @@
     </ClInclude>
     <ClInclude Include="LeafStorm.h">
       <Filter>Header Files\Moves</Filter>
+    </ClInclude>
+    <ClInclude Include="Bot.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

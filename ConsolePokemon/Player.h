@@ -6,6 +6,7 @@
 
 class Player
 {
+protected:
 	std::string player_name;
 	std::vector<BasePokemon *> pokemon_list;
 
@@ -22,6 +23,6 @@ public:
 	void PokemonSwitch();
 	std::string get_name();
 
-	void play_turn(Player *target_player);
+	virtual void play_turn(Player *target_player);
 };
 
