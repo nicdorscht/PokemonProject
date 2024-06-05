@@ -137,9 +137,13 @@ void Move::use_move(BasePokemon *user, BasePokemon *target) {
 		if (recoil_percent != 0) {
 			if ((damage * recoil_percent) + user->get_stats()[1] > user->get_base_stats()[1]) {
 				user->change_health(user->get_base_stats()[1] - user->get_stats()[1]);
+
 			}
 			else {
 				user->change_health(damage * recoil_percent);
+				if (user->get_stats()[1] <= 0) {
+					user->change_stats(5, 6);
+				}
 			}
 		}
 		

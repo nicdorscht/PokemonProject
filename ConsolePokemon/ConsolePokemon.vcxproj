@@ -146,11 +146,15 @@
     <ClInclude Include="DoubleTeam.h" />
     <ClInclude Include="DragonPulse.h" />
     <ClInclude Include="Earthquake.h" />
+    <ClInclude Include="Explosion.h" />
     <ClInclude Include="FireBlast.h" />
     <ClInclude Include="Flamethrower.h" />
     <ClInclude Include="FlashCannon.h" />
     <ClInclude Include="FocusBlast.h" />
+    <ClInclude Include="Gengar.h" />
     <ClInclude Include="GigaDrain.h" />
+    <ClInclude Include="Golem.h" />
+    <ClInclude Include="GyroBall.h" />
     <ClInclude Include="IceBeam.h" />
     <ClInclude Include="IronTail.h" />
     <ClInclude Include="Lapras.h" />
@@ -166,6 +170,7 @@
     <ClInclude Include="SludgeBomb.h" />
     <ClInclude Include="Snorlax.h" />
     <ClInclude Include="StatusEffect.h" />
+    <ClInclude Include="StoneEdge.h" />
     <ClInclude Include="ThunderBolt.h" />
     <ClInclude Include="Venusaur.h" />
     <ClInclude Include="VoltTackle.h" />

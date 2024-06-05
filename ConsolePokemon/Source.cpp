@@ -8,6 +8,8 @@
 #include "Lapras.h"
 #include "Venusaur.h"
 #include "Snorlax.h"
+#include "Gengar.h"
+#include "Golem.h"
 #include <cstdlib>
 
 #pragma region Type_Instanciation
@@ -37,7 +39,7 @@ std::string loser = "";
 int main() {
 
 	//Instantiate Players
-	Player* player1 = new Player("PUCLS", {  });
+	Player* player1 = new Player("PUCLS", { new Charizard(), new Lapras(), new Gengar(), new Golem() });
 	Player* player2 = new Player("BOT RED", { new Charizard(), new Blastoise(), new Pikachu(), new Lapras(), new Venusaur(), new Snorlax() });
 
 	//Game Loop
