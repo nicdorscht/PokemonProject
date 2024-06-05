@@ -135,7 +135,12 @@ void Move::use_move(BasePokemon *user, BasePokemon *target) {
 
 		//Deal recoil damage or add life steal
 		if (recoil_percent != 0) {
-			user->change_health(damage * recoil_percent);
+			if ((damage * recoil_percent) + user->get_stats()[1] > user->get_base_stats()[1]) {
+				user->change_health(user->get_base_stats()[1] - user->get_stats()[1]);
+			}
+			else {
+				user->change_health(damage * recoil_percent);
+			}
 		}
 		
 
