@@ -142,10 +142,12 @@
     <ClInclude Include="BodySlam.h" />
     <ClInclude Include="Brine.h" />
     <ClInclude Include="Charizard.h" />
+    <ClInclude Include="CrossChop.h" />
     <ClInclude Include="Crunch.h" />
     <ClInclude Include="DoubleTeam.h" />
     <ClInclude Include="DragonPulse.h" />
     <ClInclude Include="Earthquake.h" />
+    <ClInclude Include="Exeggutor.h" />
     <ClInclude Include="Explosion.h" />
     <ClInclude Include="FireBlast.h" />
     <ClInclude Include="Flamethrower.h" />
@@ -158,6 +160,8 @@
     <ClInclude Include="IceBeam.h" />
     <ClInclude Include="IronTail.h" />
     <ClInclude Include="Lapras.h" />
+    <ClInclude Include="LeafStorm.h" />
+    <ClInclude Include="Machamp.h" />
     <ClInclude Include="MegaKick.h" />
     <ClInclude Include="Pikachu.h" />
     <ClInclude Include="Psychic.h" />
@@ -172,8 +176,10 @@
     <ClInclude Include="StatusEffect.h" />
     <ClInclude Include="StoneEdge.h" />
     <ClInclude Include="ThunderBolt.h" />
+    <ClInclude Include="ThunderPunch.h" />
     <ClInclude Include="Venusaur.h" />
     <ClInclude Include="VoltTackle.h" />
+    <ClInclude Include="WoodHammer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

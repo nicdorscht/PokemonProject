@@ -158,5 +158,23 @@
     <ClInclude Include="Explosion.h">
       <Filter>Header Files\Moves</Filter>
     </ClInclude>
+    <ClInclude Include="Machamp.h">
+      <Filter>Header Files\Pokemon</Filter>
+    </ClInclude>
+    <ClInclude Include="CrossChop.h">
+      <Filter>Header Files\Moves</Filter>
+    </ClInclude>
+    <ClInclude Include="ThunderPunch.h">
+      <Filter>Header Files\Moves</Filter>
+    </ClInclude>
+    <ClInclude Include="Exeggutor.h">
+      <Filter>Header Files\Pokemon</Filter>
+    </ClInclude>
+    <ClInclude Include="WoodHammer.h">
+      <Filter>Header Files\Moves</Filter>
+    </ClInclude>
+    <ClInclude Include="LeafStorm.h">
+      <Filter>Header Files\Moves</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
