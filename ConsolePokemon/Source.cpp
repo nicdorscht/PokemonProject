@@ -42,7 +42,7 @@ std::string loser = "";
 int main() {
 
 	//Instantiate Players
-	Player* player1 = new Player("PUCLS", { new Charizard(), new Lapras(), new Gengar(), new Golem(), new Machamp(), new Exeggutor() });
+	Player* player1 = new Player("PUCLS", { new Lapras(), new Gengar(), new Golem(), new Charizard(), new Machamp(), new Exeggutor() });
 	Bot* player2 = new Bot("BOT RED", { new Charizard(), new Blastoise(), new Pikachu(), new Lapras(), new Venusaur(), new Snorlax() });
 
 	//Game Loop

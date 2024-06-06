@@ -7,8 +7,35 @@
 #include <string>
 
 using namespace std;
+extern bool gameOver;
+extern string loser;
+extern string winner;
 
 void Bot::play_turn(Player* target_player) {
+
+	if (gameOver && winner == "") {
+		winner = player_name;
+		return;
+	}
+
+	bool allDead = true;
+
+	//Switch if dead
+	if (current_pokemon->get_stats()[1] <= 0) {
+		for (int i = 0; i < pokemon_list.size(); i++) {
+			if (pokemon_list[i]->get_stats()[1] > 0) {
+				change_current_pokemon(pokemon_list[i]);
+				allDead = false;
+				break;
+			}
+		}
+	}
+
+	if (allDead) {
+		gameOver = true;
+		loser = player_name;
+		return;
+	}
 
 	vector<Move *> moves = current_pokemon->get_moves();
 	vector<double> move_weights{ 1.0, 1.0, 1.0, 1.0, 0.5 };
@@ -22,6 +49,7 @@ void Bot::play_turn(Player* target_player) {
 	float immune_weight = 0;
 	float enenmy_stats_weight = 1.1;
 	float user_stats_weight = 1.3;
+	float user_stats_guaranteed_weight = 1.7;
 	float power_weight = 0.0025;
 
 	//Get target pokemon's stats and then remove level and store health separetely
@@ -70,10 +98,10 @@ void Bot::play_turn(Player* target_player) {
 			if (find(type_strengths.begin(), type_strengths.end(), move_type.get_type_name()) != type_strengths.end()) {
 				move_weights[i] *= effective_weight;
 			}
-			else if (find(type_weaknesses.begin(), type_weaknesses.end(), move_type.get_type_name()) != type_weaknesses.end()) {
+			if (find(type_weaknesses.begin(), type_weaknesses.end(), move_type.get_type_name()) != type_weaknesses.end()) {
 				move_weights[i] /= not_effective_weight;
 			}
-			else if (find(type_immunities.begin(), type_immunities.end(), move_type.get_type_name()) != type_immunities.end() && current_move.get_move_info()[0] != 0) {
+			if (find(type_immunities.begin(), type_immunities.end(), move_type.get_type_name()) != type_immunities.end() && current_move.get_move_info()[0] != 0) {
 				move_weights[i] = immune_weight;
 			}
 		}
@@ -82,8 +110,14 @@ void Bot::play_turn(Player* target_player) {
 			move_weights[i] *= (current_move.get_move_info()[3] + enenmy_stats_weight);
 		}
 
-		if (user_clean_stats && current_move.get_move_info()[3] != 0) {
-			move_weights[i] *= (current_move.get_move_info()[3] + user_stats_weight);
+		if (user_clean_stats) {
+			if (current_move.get_move_info()[3] > 0) {
+				move_weights[i] *= (current_move.get_move_info()[3] + user_stats_weight);
+			}
+			else if (current_move.get_move_info()[3] < 0) {
+				move_weights[i] = user_stats_guaranteed_weight;
+			}
+			
 		}
 
 		if (current_move.get_move_info()[0] != 0) {
