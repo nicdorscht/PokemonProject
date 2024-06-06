@@ -43,7 +43,7 @@ PokemonType Move::get_move_type() {
 }
 
 std::vector<int> Move::get_move_info() {
-	return { power, accuracy, pp, stat_chance };
+	return { power, accuracy, pp, stat_chance, int(recoil_percent * 100) };
 }
 
 void Move::use_move(BasePokemon *user, BasePokemon *target) {
