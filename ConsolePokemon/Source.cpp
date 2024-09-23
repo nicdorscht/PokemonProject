@@ -45,6 +45,8 @@ int main() {
 	Player* player1 = new Player("PUCLS", { new Lapras(), new Gengar(), new Golem(), new Charizard(), new Machamp(), new Exeggutor() });
 	Bot* player2 = new Bot("BOT RED", { new Charizard(), new Blastoise(), new Pikachu(), new Lapras(), new Venusaur(), new Snorlax() });
 
+	std::cout << "Trainer RED has challenged you to a battle!\n";
+
 	//Game Loop
 	while (true) {
 		int player1_speed = player1->get_current_pokemon()->get_stats()[6];

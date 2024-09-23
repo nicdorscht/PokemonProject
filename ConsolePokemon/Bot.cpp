@@ -30,12 +30,17 @@ void Bot::play_turn(Player* target_player) {
 			}
 		}
 	}
+	else {
+		allDead = false;
+	}
 
 	if (allDead) {
 		gameOver = true;
 		loser = player_name;
 		return;
 	}
+
+	cout << "BOT RED:\n";
 
 	vector<Move *> moves = current_pokemon->get_moves();
 	vector<double> move_weights{ 1.0, 1.0, 1.0, 1.0, 0.5 };
@@ -70,7 +75,7 @@ void Bot::play_turn(Player* target_player) {
 	int sum_base_stats = accumulate(user_base_stats.begin(), user_base_stats.end(), 0);
 	int sum_stats = accumulate(user_stats.begin(), user_stats.end(), 0);
 
-	//Check if enemy's stats have been 
+	//Check if enemy's stats have been changed
 	if (enemy_stats != enemy_base_stats) {
 		enemy_clean_stats = false;
 	}
@@ -123,8 +128,6 @@ void Bot::play_turn(Player* target_player) {
 		if (current_move.get_move_info()[0] != 0) {
 			move_weights[i] *= 1 + (current_move.get_move_info()[0] * power_weight);
 		}
-
-		std::cout << current_move.get_move_name() << ":\t" << move_weights[i] << "\n";
 	}
 
 	int highest_weight = distance(move_weights.begin(), max_element(move_weights.begin(), move_weights.end()));
